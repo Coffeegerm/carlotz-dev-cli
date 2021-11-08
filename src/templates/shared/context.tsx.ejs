@@ -1,0 +1,21 @@
+import React, { useContext, createContext } from 'react';
+
+const <%=props.name%>Context = createContext(null);
+
+export interface <%= props.name %>Data {
+
+};
+
+export interface <%= props.name %>Props {
+    children: React.ReactNode;
+}
+
+export const <%= props.name  %>Provider = ({ children }: <%= props.name %>Props) => {
+    return (
+        <<%=props.name%>Context.Provider value={{}}>
+            {children}
+        </<%=props.name%>Context.Provider> 
+    )
+}
+
+export const use<%=props.name%>Context: <%= props.name %>Data = () => useContext(<%=props.name%>Context)

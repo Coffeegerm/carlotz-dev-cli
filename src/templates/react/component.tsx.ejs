@@ -1,5 +1,10 @@
-import React, {FC} from 'react'; import <%= props.name %>Props from './<%=
-props.name%>Props'; const <%= props.name %>: FC<<%= props.name %>Props> = ({}:
-<%= props.name %>Props) => { return (
-<div></div>
-); }; export default <%= props.name %>;
+import React, {FC} from 'react'; 
+import <%= props.name %>Props from './<%=props.name%>Props';
+import use<%= props.name %>Styles from './use<%= props.name %>Styles';
+
+const <%= props.name %>: FC<<%= props.name %>Props> = ({}:<%= props.name %>Props) => { 
+    const classes = use<%= props.name %>Styles(); 
+    return (<div></div>); 
+}; 
+
+export default <%= props.name %>;
