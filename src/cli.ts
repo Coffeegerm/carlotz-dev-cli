@@ -9,7 +9,6 @@ async function run(argv) {
     .brand('carlotz-dev-cli')
     .src(__dirname)
     .plugins('./node_modules', { matching: 'carlotz-dev-cli-*', hidden: true })
-    .help() // provides default for help, h, --help, -h
     .version() // provides default for version, v, --version, -v
     .create()
   // enable the following method if you'd like to skip loading one of these core extensions

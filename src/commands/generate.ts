@@ -1,9 +1,11 @@
-import { GluegunToolbox } from 'gluegun'
-import {generateReactComponents} from '../generators/react'
+import { GluegunToolbox, GluegunCommand } from 'gluegun'
+import { generateReactComponents } from '../generators/react'
+import { generateReactNativeComponents } from '../generators/react-native'
+import {carLotzDevCliHeading} from '../tools/prettyPrint'
 
-const generateTypes = ['component', 'page', 'context']
+const generateTypes = ['component', 'page', 'context', 'screen']
 
-module.exports = {
+const generate: GluegunCommand = {
   name: 'generate',
   description: 'Generate new components for project',
   alias: ['g'],
@@ -13,7 +15,9 @@ module.exports = {
       print: { info, error, success }
     } = toolbox
 
-    const type = parameters.first
+    carLotzDevCliHeading();
+
+    let type = parameters.first
 
     const name = parameters.second
 
@@ -25,14 +29,33 @@ module.exports = {
     } else if (!generateTypes.includes(type)) {
       error('\nPlease provide valid type for generation')
     } else {
-      info(`Generating files for ${(rn || reactNative) ? 'React Native' : 'React'}`)
+      info(
+        `Generating files for ${rn || reactNative ? 'React Native' : 'React'}`
+      )
 
       if (rn || reactNative) {
+        if (type === 'page') {
+          toolbox.parameters.first = 'screen';
+          info(
+            `You tried to use a page type in React Native. Please use screen next time.`
+          )
+        }
+        await generateReactNativeComponents(toolbox)
       } else {
-        await generateReactComponents(toolbox);
+        if (type === 'screen') {
+          toolbox.parameters.first = 'page';
+          info(
+            `You tried to use a screen type in React Native. Please use page next time.`
+          )
+        }
+        await generateReactComponents(toolbox)
       }
 
-      success(`Generated files for type ${type} with name ${name}`)
+      success(`Generated files for type ${toolbox.parameters.first} with name ${name}`)
+
+      carLotzDevCliHeading()
     }
   }
 }
+
+module.exports = generate

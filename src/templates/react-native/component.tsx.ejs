@@ -1,0 +1,11 @@
+import React, {FC} from 'react'; 
+import {View} from 'react-native';
+import <%= props.name %>Props from './<%=props.name%>Props';
+import use<%= props.name %>Styles from './use<%= props.name %>Styles';
+
+const <%= props.name %>: FC<<%= props.name %>Props> = ({}:<%= props.name %>Props) => { 
+    const classes = use<%= props.name %>Styles(); 
+    return (<View></View>); 
+};
+
+export default <%= props.name %>;
