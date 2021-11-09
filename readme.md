@@ -1,10 +1,18 @@
-# carlotz-dev-cli CLI
+# carlotz-dev-cli
 
-A CLI for carlotz-dev-cli.
+A CLI for carlotz development.
 
-## Customizing your CLI
+## Customizing your CLI with gluegun
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
+This CLI uses the gluegun open source library to help scaffold and build out commands.
+
+Check out the documentation at <https://github.com/infinitered/gluegun/tree/master/docs>.
+
+## Run locally
+
+`npm link`
+
+`carlotz-dev-cli help` to confirm linked properly. At this point the CLI can be used from any directory
 
 ## Publishing to NPM
 
@@ -19,13 +27,6 @@ $ npm test
 $ npm publish
 ```
 
-# License
+## License
 
 MIT - see LICENSE
-
-## Run locally 
-
-`npm link`
-
-`carlotz-dev-cli help` to confirm
-
