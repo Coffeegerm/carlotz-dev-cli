@@ -22,12 +22,6 @@ const help: GluegunCommand = {
     p()
     heading('Commands')
     p()
-    // command('new         ', 'Creates a new React Native app', [
-    //   'carlotz-dev-cli new MyApp',
-    //   'carlotz-dev-cli new MyApp --expo',
-    //   'carlotz-dev-cli new MyApp --bundle com.mycompany.myapp'
-    // ])
-    // p()
 
     command('generate (g)', 'Generates components and other app features', [
       'carlotz-dev-cli generate context Dealers',

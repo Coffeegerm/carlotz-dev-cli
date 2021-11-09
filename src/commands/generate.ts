@@ -17,7 +17,7 @@ const generate: GluegunCommand = {
 
     carLotzDevCliHeading();
 
-    let type = parameters.first
+    const type = parameters.first
 
     const name = parameters.second
 
