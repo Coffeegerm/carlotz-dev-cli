@@ -1,7 +1,7 @@
 import { GluegunToolbox, GluegunCommand } from 'gluegun'
 import { generateReactComponents } from '../generators/react'
 import { generateReactNativeComponents } from '../generators/react-native'
-import {carLotzDevCliHeading} from '../tools/prettyPrint'
+import { carLotzDevCliHeading, p } from '../tools/prettyPrint'
 
 const generateTypes = ['component', 'page', 'context', 'screen']
 
@@ -15,7 +15,7 @@ const generate: GluegunCommand = {
       print: { info, error, success }
     } = toolbox
 
-    carLotzDevCliHeading();
+    carLotzDevCliHeading()
 
     const type = parameters.first
 
@@ -35,7 +35,7 @@ const generate: GluegunCommand = {
 
       if (rn || reactNative) {
         if (type === 'page') {
-          toolbox.parameters.first = 'screen';
+          toolbox.parameters.first = 'screen'
           info(
             `You tried to use a page type in React Native. Please use screen next time.`
           )
@@ -43,7 +43,7 @@ const generate: GluegunCommand = {
         await generateReactNativeComponents(toolbox)
       } else {
         if (type === 'screen') {
-          toolbox.parameters.first = 'page';
+          toolbox.parameters.first = 'page'
           info(
             `You tried to use a screen type in React Native. Please use page next time.`
           )
@@ -51,8 +51,11 @@ const generate: GluegunCommand = {
         await generateReactComponents(toolbox)
       }
 
-      success(`Generated files for type ${toolbox.parameters.first} with name ${name}`)
+      success(
+        `Generated files for type ${toolbox.parameters.first} with name ${name}`
+      )
 
+      p()
       carLotzDevCliHeading()
     }
   }
