@@ -1,0 +1,12 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Story, Meta } from '@storybook/react';
+import React from 'react';
+import <%= props.name %> from 'src/components/<%= props.name  %>';
+import <%= props.name %>Props from 'src/components/<%= props.name  %>/<%= props.name  %>Props';
+
+export default {
+    component: <%= props.name %>,
+    title: '<%= props.name %>',
+} as Meta;
+
+export const Default: Story<<%= props.name %>Props> = () => <<%=props.name%>/>;
