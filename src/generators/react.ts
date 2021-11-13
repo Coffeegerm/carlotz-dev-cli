@@ -82,3 +82,7 @@ export const generateReactComponents = async (toolbox: GluegunToolbox) => {
       break
   }
 }
+
+export const generateNewReactApp = async (toolbox: GluegunToolbox) => {
+  console.log('generate new react app')
+}

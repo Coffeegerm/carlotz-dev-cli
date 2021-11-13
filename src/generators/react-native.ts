@@ -46,3 +46,7 @@ export const generateReactNativeComponents = async (
       break
   }
 }
+
+export const generateNewReactNativeApp = async (toolbox: GluegunToolbox) => {
+  console.log('generate new react native app')
+}
