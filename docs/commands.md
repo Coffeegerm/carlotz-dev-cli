@@ -21,3 +21,4 @@ parameters:
 options:
 
 - reactNative | rn -- this flag will determine whether or not to create React or React Native components
+- directory | d -- this flag will help nest components in another file structure. Only used for components atm. passing --d="Forms/ReviewAndSubmit" will place component in "src/components/Forms/ReviewAndSubmit/[ComponentName]"

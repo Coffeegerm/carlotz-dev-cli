@@ -10,29 +10,35 @@ const generateComponent = async (toolbox: GluegunToolbox) => {
 
   const name = parameters.second
 
-  const directory = `src/components/${name}`
+  // construct directory passed on options if passed
+  const { directory, d } = parameters.options
+  let componentDirectory = `src/components/${name}`
+  if (directory || d) {
+    const dir = directory || d
+    componentDirectory = `src/components/${dir}/${name}`
+  }
 
   await generateProps(toolbox, name)
 
   await generate({
     template: 'react/useStyles.ts.ejs',
-    target: `${directory}/use${name}Styles.ts`,
+    target: `${componentDirectory}/use${name}Styles.ts`,
     props: { name }
   })
 
   await generate({
     template: 'react/component.tsx.ejs',
-    target: `${directory}/index.tsx`,
+    target: `${componentDirectory}/index.tsx`,
     props: { name }
   })
 
   await generate({
     template: 'react/story.tsx.ejs',
-    target: `${directory}/${name}.stories.tsx`,
+    target: `${componentDirectory}/${name}.stories.tsx`,
     props: { name }
   })
 
-  info(`Generated files in directory ${directory}`)
+  info(`Generated files in directory ${componentDirectory}`)
 }
 
 const generatePage = async (toolbox: GluegunToolbox) => {

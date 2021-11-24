@@ -1,9 +1,16 @@
 import { GluegunToolbox } from 'gluegun'
 
 export const generateProps = async (toolbox: GluegunToolbox, name: string) => {
+  // construct directory passed on options if passed
+  const { directory, d } = toolbox.parameters.options
+  let componentDirectory = `src/components/${name}`
+  if (directory || d) {
+    const dir = directory || d
+    componentDirectory = `src/components/${dir}/${name}`
+  }
   await toolbox.template.generate({
     template: 'shared/props.ts.ejs',
-    target: `src/components/${name}/${name}Props.ts`,
+    target: `${componentDirectory}/${name}Props.ts`,
     props: { name }
   })
 }
