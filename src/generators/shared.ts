@@ -19,11 +19,12 @@ export const generateContext = async (
   toolbox: GluegunToolbox,
   name: string
 ) => {
+  const pName = toolbox.strings.pascalCase(name)
   await toolbox.template.generate({
     template: 'shared/context.tsx.ejs',
-    target: `src/contexts/${name}Context.tsx`,
-    props: { name }
+    target: `src/contexts/${pName}Context.tsx`,
+    props: { pName }
   })
 
-  toolbox.print.info('Generated files in directory src/contexts');
+  toolbox.print.info('Generated files in directory src/contexts')
 }

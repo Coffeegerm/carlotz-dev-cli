@@ -5,10 +5,11 @@ const generateComponent = async (toolbox: GluegunToolbox) => {
   const {
     parameters,
     template: { generate },
-    print: { info }
+    print: { info },
+    strings: { pascalCase }
   } = toolbox
 
-  const name = parameters.second
+  const name = pascalCase(parameters.second)
 
   const directory = `src/components/${name}`
 

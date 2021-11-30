@@ -26,7 +26,10 @@ const help: GluegunCommand = {
     command('generate (g)', 'Generates components and other app features', [
       'carlotz-dev-cli generate context Dealers',
       'carlotz-dev-cli generate component Hello',
-      'carlotz-dev-cli generate (screen || page) Login'
+      'carlotz-dev-cli generate (screen || page) Login',
+      'Other options:',
+      '--rn || --reactNative - Indicates generation of React Native components',
+      '--d || --directory - Indicates directory to generate components in (only works with component type)'
     ])
     p()
     carLotzDevCliHeading()

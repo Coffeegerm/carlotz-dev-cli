@@ -5,10 +5,11 @@ const generateComponent = async (toolbox: GluegunToolbox) => {
   const {
     parameters,
     template: { generate },
-    print: { info }
+    print: { info },
+    strings: { pascalCase }
   } = toolbox
 
-  const name = parameters.second
+  const name = pascalCase(parameters.second)
 
   // construct directory passed on options if passed
   const { directory, d } = parameters.options
@@ -35,7 +36,7 @@ const generateComponent = async (toolbox: GluegunToolbox) => {
   await generate({
     template: 'react/story.tsx.ejs',
     target: `${componentDirectory}/${name}.stories.tsx`,
-    props: { name }
+    props: { name, directory: componentDirectory }
   })
 
   info(`Generated files in directory ${componentDirectory}`)
@@ -45,10 +46,11 @@ const generatePage = async (toolbox: GluegunToolbox) => {
   const {
     parameters,
     template: { generate },
-    print: { info }
+    print: { info },
+    strings: { pascalCase }
   } = toolbox
 
-  const name = parameters.second
+  const name = pascalCase(parameters.second)
 
   const directory = `src/pages/${name}`
 
