@@ -30,5 +30,3 @@ $ npm publish
 ## License
 
 MIT - see LICENSE
-
-Test again2
