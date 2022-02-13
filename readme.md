@@ -29,4 +29,4 @@ $ npm publish
 
 ## License
 
-MIT - see LICENSE
+MIT - see LICENSE Test
